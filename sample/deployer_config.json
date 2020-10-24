@@ -1,0 +1,1 @@
+{"cluster":"cluster", "rollback_on_fail":false, "deployment":"sample-app", "tag":"latest"}
