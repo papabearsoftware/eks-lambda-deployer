@@ -49,17 +49,19 @@ func deploy() error {
 	}
 
 	var deploymentContainerMap map[string]string
+	deploymentContainerMap = make(map[string]string)
 	// Store copy so we can easily revert
 	existingDeploymentCopy := deployment
 
 	for _, container := range deploymentJSON.Containers {
+		util.LogInfo(fmt.Sprintf("%v", container))
 		deploymentContainerMap[container.ContainerName] = container.Tag
 	}
 
 	for i, c := range deployment.Spec.Template.Spec.Containers {
 		if _, ok := deploymentContainerMap[c.Name]; ok {
 			image := strings.Split(c.Image, ":")
-			deployment.Spec.Template.Spec.Containers[i].Image = fmt.Sprintf("%s:%s", image, deploymentContainerMap[c.Name])
+			deployment.Spec.Template.Spec.Containers[i].Image = fmt.Sprintf("%s:%s", image[0], deploymentContainerMap[c.Name])
 		} else {
 			util.LogInfo(fmt.Sprintf("Did not find a matching deployment for container for %s", c.Name))
 		}
