@@ -3,7 +3,7 @@ version: 0.2
 phases:
   post_build:
     commands:
-      - echo '{"cluster":"cluster", "rollback_on_fail":false, "deployment":"sample-app", "tag":"latest"}' > deployer_config.json
+      - echo '{"cluster":"cluster", "rollback_on_fail":false, "deployment":"sample-app", "tag":"latest", "namespace":"default"}' > deployer_config.json
 
 artifacts:
   files:

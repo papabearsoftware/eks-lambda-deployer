@@ -19,6 +19,7 @@ type DeploymentJSON struct {
 	RollbackOnFail bool   `json:"rollback_on_fail"`
 	Deployment     string `json:"deployment"`
 	Tag            string `json:"tag"`
+	Namespace      string `json:"namespace"`
 }
 
 func retrieveS3Artifact(bucket string, key string) error {

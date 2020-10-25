@@ -14,7 +14,7 @@ The pipeline flow is:
 
 - CodeBuild builds the new container image and writes a simple JSON to a file that gets uploaded to S3. This file is the build artifact that the Lambda uses
 
-- The Lambda pulls down the artifact, parses it, and deploys it. In the case of a failure
+- The Lambda pulls down the artifact, parses it, and deploys it. In the case of a failure, it rolls back if `rollback_on_fail` is `true`
 
 **Note:** You can set the `DEBUG` environment variable to "true" for most detailed logging
 
@@ -28,13 +28,18 @@ The pipeline flow is:
     "cluster": "eks-staging",
     "rollback_on_fail": true,
     "deployment": "sample-app",
+    "namespace": "default",
     "tag": "whatever the new image's tag is"
 }
 ```
 
+`cluster` must be a context defined in the kubernetes config file
+
 ## TODO
 
 Decide best way to store and retrieve kubeconfig
+ - B64 encode flattened kubeconfigs into Parameter Store parameter
+ - `cluster` in JSON should be the name of the context in the flattened kubeconfig
 
 Write all the kubernetes logic
 
