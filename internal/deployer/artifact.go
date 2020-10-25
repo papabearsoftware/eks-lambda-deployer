@@ -15,11 +15,16 @@ import (
 )
 
 type DeploymentJSON struct {
-	Cluster        string `json:"cluster"`
-	RollbackOnFail bool   `json:"rollback_on_fail"`
-	Deployment     string `json:"deployment"`
-	Tag            string `json:"tag"`
-	Namespace      string `json:"namespace"`
+	Cluster        string                 `json:"cluster"`
+	RollbackOnFail bool                   `json:"rollback_on_fail"`
+	Deployment     string                 `json:"deployment"`
+	Namespace      string                 `json:"namespace"`
+	Containers     []ContainerDefinitions `json:"containers"`
+}
+
+type ContainerDefinitions struct {
+	ContainerName string `json:"container_name"`
+	Tag           string `json:"tag"`
 }
 
 func retrieveS3Artifact(bucket string, key string) error {

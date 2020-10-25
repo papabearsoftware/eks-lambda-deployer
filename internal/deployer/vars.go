@@ -11,7 +11,7 @@ var (
 	err            error
 	jobID          string
 	deploymentJSON DeploymentJSON
-
+	kube           KubeClient
 	// Errors
 	//ErrConfigNotFound is thrown when the configuration file is not found
 	ErrConfigNotFound = errors.New("Config file not found")

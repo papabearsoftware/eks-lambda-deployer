@@ -95,11 +95,15 @@ func LambdaHandler(ctx context.Context, event events.CodePipelineEvent) {
 		markDeploymentFailure("Error creating clientset", "Error creating clientset")
 	}
 
-	kube := &KubeClient{
+	kube = KubeClient{
 		Client: cs,
 	}
 
-	kube.checkDeploymentStatus()
+	err = deploy()
+
+	if err != nil {
+		util.LogError("Returned error from deploy()", err.Error())
+	}
 
 	// Deploy was a success!
 	util.LogInfo("Marking job successful")
