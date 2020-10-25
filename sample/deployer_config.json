@@ -1,1 +1,1 @@
-{"cluster":"cluster", "rollback_on_fail":false, "deployment":"sample-app", "tag":"latest", "namespace":"default"}
+{"cluster":"cluster", "rollback_on_fail":false, "deployment":"sample-app", "containers":[{"container_name":"app","tag":"latest"}], "namespace":"default"}

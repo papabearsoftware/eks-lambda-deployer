@@ -29,7 +29,12 @@ The pipeline flow is:
     "rollback_on_fail": true,
     "deployment": "sample-app",
     "namespace": "default",
-    "tag": "whatever the new image's tag is"
+    "containers" [
+        {
+            "tag": "1603656257",
+            "container_name": "app"
+        }
+    ]    
 }
 ```
 

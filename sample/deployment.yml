@@ -12,7 +12,7 @@ spec:
         app: sample-app
     spec:
       containers:
-      - name: sample-app
+      - name: app
         image: "mitchya1/sample-eks-lambda-app:1603656257"
         resources:
           limits:
@@ -20,3 +20,11 @@ spec:
             cpu: "50m"
         ports:
         - containerPort: 7777
+      - name: nginx
+        image: "nginx:latest"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 80
