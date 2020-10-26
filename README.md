@@ -42,10 +42,6 @@ The pipeline flow is:
 
 ## TODO
 
-Decide best way to store and retrieve kubeconfig
- - B64 encode flattened kubeconfigs into Parameter Store parameter
- - `cluster` in JSON should be the name of the context in the flattened kubeconfig
-
-Write all the kubernetes logic
+Add ability to add containers to running pod
 
 Write sample Terraform
