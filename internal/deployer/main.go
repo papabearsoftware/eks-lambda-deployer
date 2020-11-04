@@ -103,6 +103,7 @@ func LambdaHandler(ctx context.Context, event events.CodePipelineEvent) {
 
 	if err != nil {
 		util.LogError("Returned error from deploy()", err.Error())
+		markDeploymentFailure("DeploymentError", err.Error())
 	}
 
 	// Deploy was a success!
