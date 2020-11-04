@@ -29,7 +29,7 @@ The pipeline flow is:
     "rollback_on_fail": true,
     "deployment": "sample-app",
     "namespace": "default",
-    "containers" [
+    "containers": [
         {
             "tag": "1603656257",
             "container_name": "app"
