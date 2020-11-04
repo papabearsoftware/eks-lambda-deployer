@@ -154,8 +154,10 @@ func deploy() error {
 	//fmt.Println(dd.ResourceVersion)
 
 	if err = checkDeploymentStatus(dd.ResourceVersion, stringTS); err != nil {
-		existingDeploymentCopy.ResourceVersion = ""
-		revert(existingDeploymentCopy)
+		if deploymentJSON.RollbackOnFail {
+			existingDeploymentCopy.ResourceVersion = ""
+			revert(existingDeploymentCopy)
+		}
 		return err
 	}
 
