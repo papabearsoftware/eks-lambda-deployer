@@ -32,6 +32,7 @@ func getExistingDeployment() (*appsv1.Deployment, error) {
 }
 
 func checkDeploymentStatus(rv string, ts string) error {
+	// TODO either make this an env var or handle checking pending pods better
 	time.Sleep(15 * time.Second)
 
 	pods, err := kube.Client.CoreV1().Pods(deploymentJSON.Namespace).List(v1.ListOptions{
