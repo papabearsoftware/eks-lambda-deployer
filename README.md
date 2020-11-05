@@ -1,4 +1,4 @@
-![CodeQL](https://github.com/papabearsoftware/eks-lambda-deployer/workflows/CodeQL/badge.svg)
+![CodeQL](https://github.com/papabearsoftware/eks-lambda-deployer/workflows/CodeQL/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/papabearsoftware/eks-lambda-deployer)](https://goreportcard.com/report/github.com/papabearsoftware/eks-lambda-deployer)
 
 # eks-lambda-deployer
 
