@@ -1,3 +1,5 @@
+![CodeQL](https://github.com/papabearsoftware/eks-lambda-deployer/workflows/CodeQL/badge.svg)
+
 # eks-lambda-deployer
 
 A Lambda function to deploy updates to deployments in EKS as a CodePipeline step.
