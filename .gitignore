@@ -1,2 +1,11 @@
+# Binary
+main
+# Zipped binary
 *.zip
 dev/
+# Terraform stuff
+*.tfvars
+*.plan
+*.tfstate
+*.tfstate.backup
+.terraform/
