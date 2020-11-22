@@ -111,7 +111,8 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
         "s3:GetObject",
         "s3:GetObjectVersion",
         "s3:GetBucketVersioning",
-        "s3:PutObject"
+        "s3:PutObject",
+        "lambda:InvokeFunction"
       ],
       "Resource": [
         "*"
