@@ -40,6 +40,10 @@ The pipeline flow is:
 
 `cluster` must be a context defined in the kubernetes config file
 
+## Important Notes
+
+When base64 encoding the kubeconfig, you must set `-w 0` to disable wrapping
+
 ## TODO
 
 Add ability to add containers to running pod
