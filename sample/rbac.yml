@@ -12,10 +12,17 @@ kind: ClusterRoleBinding
 metadata:
   name: lambda-deployer
 subjects:
-  - kind: Group # The aws-auth configmap must be updated to map the Lambda's role ARN to this group
+  - kind: ServiceAccount
+    # The aws-auth configmap must be updated to map the Lambda's role ARN to this serviceaccount
+    # In this case, the group under mapRoles is "system:serviceaccount:lambda-deployer"
+    namespace: default
     name: lambda-deployer
-    apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
   name: lambda-deployer
   apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: lambda-deployer

@@ -42,6 +42,12 @@ The pipeline flow is:
 
 `cluster` must be a context defined in the kubernetes config file
 
+## Service Account Token
+
+`kubectl get sa lambda-deployer -o json | jq -r '.secretes[].name'` 
+
+`kubectl get secret <secret name from above ^^> -o json | jq -r '.data.token' | base64 -d`
+
 ## TODO
 
 Add ability to add containers to running pod
